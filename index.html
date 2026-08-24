@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculatrice</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="calculator">
-  <div class="display">
-    <div id="expression" class="expression"></div>
-    <div id="result" class="result">0</div>
-  </div>
+    <div class="calculator">
+        <div class="display">
+            <div id="expression" class="expression"></div>
+            <div id="result" class="result">0</div>
+        </div>
 
-  <div class="buttons">
-    <button class="btn function" data-action="clear">AC</button>
-    <button class="btn function" data-action="delete">⌫</button>
-    <button class="btn function" data-action="percent">%</button>
-    <button class="btn operator" data-action="operator" data-value="/">÷</button>
+        <div class="buttons">
+            <button class="btn function" data-action="clear">AC</button>
+            <button class="btn function" data-action="delete">⌫</button>
+            <button class="btn function" data-action="percent">%</button>
+            <button class="btn operator" data-action="operator" data-value="/">÷</button>
 
-    <button class="btn number" data-value="7">7</button>
-    <button class="btn number" data-value="8">8</button>
-    <button class="btn number" data-value="9">9</button>
-    <button class="btn operator" data-action="operator" data-value="*">×</button>
+            <button class="btn number" data-value="7">7</button>
+            <button class="btn number" data-value="8">8</button>
+            <button class="btn number" data-value="9">9</button>
+            <button class="btn operator" data-action="operator" data-value="*">×</button>
 
-    <button class="btn number" data-value="4">4</button>
-    <button class="btn number" data-value="5">5</button>
-    <button class="btn number" data-value="6">6</button>
-    <button class="btn operator" data-action="operator" data-value="-">−</button>
+            <button class="btn number" data-value="4">4</button>
+            <button class="btn number" data-value="5">5</button>
+            <button class="btn number" data-value="6">6</button>
+            <button class="btn operator" data-action="operator" data-value="-">−</button>
 
-    <button class="btn number" data-value="1">1</button>
-    <button class="btn number" data-value="2">2</button>
-    <button class="btn number" data-value="3">3</button>
-    <button class="btn operator" data-action="operator" data-value="+">+</button>
+            <button class="btn number" data-value="1">1</button>
+            <button class="btn number" data-value="2">2</button>
+            <button class="btn number" data-value="3">3</button>
+            <button class="btn operator" data-action="operator" data-value="+">+</button>
 
-    <button class="btn equals" data-action="equals">=</button>
-    <button class="btn number" data-value="0">0</button>
-    <button class="btn number" data-value=".">.</button>
-    <button class="btn operator mod" data-action="operator" data-value="%">Mod</button>
-  </div>
+            <button class="btn equals" data-action="equals">=</button>
+            <button class="btn number" data-value="0">0</button>
+            <button class="btn number" data-value=".">.</button>
+            <button class="btn operator mod" data-action="operator" data-value="%">Mod</button>
+        </div>
 
-  <div class="currency-label">Convertir (base €)</div>
-  <div class="currencies">
-    <button class="btn currency" data-action="currency" data-currency="EUR">€</button>
-    <button class="btn currency" data-action="currency" data-currency="USD">$</button>
-    <button class="btn currency" data-action="currency" data-currency="CNY">Yu</button>
-    <button class="btn currency" data-action="currency" data-currency="JPY">Ye</button>
-    <button class="btn currency" data-action="currency" data-currency="GBP">LvS</button>
-    <button class="btn currency" data-action="currency" data-currency="XAF">FCFaCmac</button>
-    <button class="btn currency" data-action="currency" data-currency="XOF">FCFaCdao</button>
-  </div>
-</div>
+        <div class="currency-label">Convertir (base €)</div>
+        <div class="currencies">
+            <button class="btn currency" data-action="currency" data-currency="EUR">€</button>
+            <button class="btn currency" data-action="currency" data-currency="USD">$</button>
+            <button class="btn currency" data-action="currency" data-currency="CNY">Yu</button>
+            <button class="btn currency" data-action="currency" data-currency="JPY">Ye</button>
+            <button class="btn currency" data-action="currency" data-currency="GBP">LvS</button>
+            <button class="btn currency" data-action="currency" data-currency="XAF">CFAcemac</button>
+            <button class="btn currency" data-action="currency" data-currency="XOF">CFaCdao</button>
+        </div>
+    </div>
 
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
