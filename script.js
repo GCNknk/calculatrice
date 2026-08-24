@@ -14,7 +14,7 @@ function updateDisplay() {
 }
 
 function operatorSymbol(op) {
-  return { '/': '÷', '*': '×', '-': '−', '+': '+', '%': 'mod' }[op] || '';
+  return { '/': '÷', '*': '×', '-': '−', '+': '+', '%': 'Mod' }[op] || '';
 }
 
 function inputNumber(value) {
