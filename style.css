@@ -1,0 +1,122 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0a0a0a;
+  --emerald: #0e6b4f;
+  --emerald-light: #14a37a;
+  --emerald-dark: #084d39;
+  --text: #e8f5f0;
+  --muted: #7fa89a;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  padding: 20px;
+}
+
+.calculator {
+  width: 100%;
+  max-width: 360px;
+  background: #111111;
+  border: 1px solid #1e1e1e;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(20, 163, 122, 0.08);
+}
+
+.display {
+  background: #050505;
+  border-radius: 14px;
+  padding: 24px 16px 16px;
+  margin-bottom: 20px;
+  text-align: right;
+  overflow: hidden;
+  border: 1px solid #1a1a1a;
+}
+
+.expression {
+  min-height: 20px;
+  font-size: 16px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.result {
+  font-size: 42px;
+  color: var(--text);
+  font-weight: 600;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.btn {
+  border: none;
+  border-radius: 14px;
+  padding: 18px 0;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--text);
+  background: #1a1a1a;
+  transition: transform 0.08s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:active {
+  transform: scale(0.94);
+}
+
+.btn.number {
+  background: #171717;
+}
+
+.btn.number:hover {
+  background: #202020;
+}
+
+.btn.function {
+  background: #1c1c1c;
+  color: var(--emerald-light);
+}
+
+.btn.function:hover {
+  background: #232323;
+}
+
+.btn.operator {
+  background: var(--emerald-dark);
+  color: var(--text);
+}
+
+.btn.operator:hover {
+  background: var(--emerald);
+}
+
+.btn.equals {
+  grid-column: span 2;
+  background: var(--emerald);
+  font-weight: 600;
+}
+
+.btn.equals:hover {
+  background: var(--emerald-light);
+  box-shadow: 0 0 20px rgba(20, 163, 122, 0.4);
+}
+
+.btn.zero {
+  grid-column: span 2;
+}
