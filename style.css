@@ -106,8 +106,13 @@ body {
   background: var(--emerald);
 }
 
+.btn.mod {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
 .btn.equals {
-  grid-column: span 2;
   background: var(--emerald);
   font-weight: 600;
 }
@@ -115,8 +120,4 @@ body {
 .btn.equals:hover {
   background: var(--emerald-light);
   box-shadow: 0 0 20px rgba(20, 163, 122, 0.4);
-}
-
-.btn.zero {
-  grid-column: span 2;
 }

@@ -14,7 +14,7 @@ function updateDisplay() {
 }
 
 function operatorSymbol(op) {
-  return { '/': '÷', '*': '×', '-': '−', '+': '+' }[op] || '';
+  return { '/': '÷', '*': '×', '-': '−', '+': '+', '%': 'mod' }[op] || '';
 }
 
 function inputNumber(value) {
@@ -48,6 +48,7 @@ function compute() {
     case '-': result = a - b; break;
     case '*': result = a * b; break;
     case '/': result = b === 0 ? NaN : a / b; break;
+    case '%': result = b === 0 ? NaN : a % b; break;
     default: return;
   }
 
@@ -101,7 +102,7 @@ document.querySelectorAll('.btn').forEach(btn => {
 document.addEventListener('keydown', (e) => {
   if (e.key >= '0' && e.key <= '9') inputNumber(e.key);
   else if (e.key === '.') inputNumber('.');
-  else if (['+', '-', '*', '/'].includes(e.key)) inputOperator(e.key);
+  else if (['+', '-', '*', '/', '%'].includes(e.key)) inputOperator(e.key);
   else if (e.key === 'Enter' || e.key === '=') compute();
   else if (e.key === 'Backspace') deleteLast();
   else if (e.key === 'Escape') clearAll();
