@@ -39,7 +39,7 @@ body {
   padding: 24px 16px 16px;
   margin-bottom: 20px;
   text-align: right;
-  overflow: hidden;
+  overflow: visible;
   border: 1px solid #1a1a1a;
 }
 
@@ -53,11 +53,15 @@ body {
 
 .result {
   font-size: 42px;
-  color: var(--text);
+  color: #eaffff;
   font-weight: 600;
-  overflow-x: auto;
+  overflow: visible;
   white-space: nowrap;
-  text-shadow: 0 0 8px rgba(0, 229, 255, 0.75), 0 0 18px rgba(0, 229, 255, 0.45);
+  text-shadow:
+    0 0 6px #00e5ff,
+    0 0 14px #00e5ff,
+    0 0 28px rgba(0, 229, 255, 0.8),
+    0 0 44px rgba(0, 229, 255, 0.5);
 }
 
 .buttons {
