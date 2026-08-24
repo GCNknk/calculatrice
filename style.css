@@ -57,6 +57,7 @@ body {
   font-weight: 600;
   overflow-x: auto;
   white-space: nowrap;
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.75), 0 0 18px rgba(0, 229, 255, 0.45);
 }
 
 .buttons {
