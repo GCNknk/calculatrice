@@ -126,3 +126,37 @@ body {
   background: var(--emerald-light);
   box-shadow: 0 0 20px rgba(20, 163, 122, 0.4);
 }
+
+.currency-label {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.currencies {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.btn.currency {
+  padding: 12px 4px;
+  font-size: 14px;
+  font-weight: 600;
+  background: #14261f;
+  color: var(--emerald-light);
+  border: 1px solid #1c3a30;
+}
+
+.btn.currency:hover {
+  background: #1a3128;
+  border-color: var(--emerald);
+}
+
+.btn.currency.loading {
+  opacity: 0.5;
+  cursor: wait;
+}

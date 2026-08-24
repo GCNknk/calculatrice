@@ -5,6 +5,30 @@ let current = '0';
 let previous = null;
 let operator = null;
 let resultShown = false;
+let eurBase = 0;
+
+const CFA_PER_EUR = 655.957; // parité fixe FCFA/euro (traité de coopération monétaire)
+
+const rates = { EUR: 1, XAF: CFA_PER_EUR, XOF: CFA_PER_EUR, USD: null, CNY: null, JPY: null, GBP: null };
+const currencyLabels = { EUR: '€', USD: '$', CNY: 'Yu', JPY: 'Ye', GBP: 'LvS', XAF: 'FCFA', XOF: 'FCFA' };
+
+function fetchLiveRates() {
+  const liveCodes = ['USD', 'CNY', 'JPY', 'GBP'];
+  const liveButtons = [...document.querySelectorAll('.btn.currency')].filter(b => liveCodes.includes(b.dataset.currency));
+  liveButtons.forEach(b => b.classList.add('loading'));
+
+  fetch(`https://api.frankfurter.dev/v1/latest?from=EUR&to=${liveCodes.join(',')}`)
+    .then(res => res.json())
+    .then(data => {
+      liveCodes.forEach(code => { rates[code] = data.rates[code] ?? null; });
+    })
+    .catch(() => {
+      liveButtons.forEach(b => b.title = 'Taux indisponible (hors ligne ?)');
+    })
+    .finally(() => {
+      liveButtons.forEach(b => b.classList.remove('loading'));
+    });
+}
 
 function updateDisplay() {
   resultEl.textContent = current;
@@ -83,10 +107,32 @@ function percent() {
   current = formatResult(parseFloat(current) / 100);
 }
 
+function convertCurrency(code) {
+  const rate = rates[code];
+  if (rate === null || rate === undefined) {
+    current = 'Indisponible';
+    resultShown = true;
+    return;
+  }
+
+  const converted = eurBase * rate;
+  current = `${converted.toFixed(2)} ${currencyLabels[code]}`;
+  resultShown = true;
+}
+
 document.querySelectorAll('.btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const action = btn.dataset.action;
     const value = btn.dataset.value;
+    const currency = btn.dataset.currency;
+
+    if (action === 'currency') {
+      if (operator !== null && !resultShown) compute();
+      eurBase = parseFloat(current) || 0;
+      convertCurrency(currency);
+      updateDisplay();
+      return;
+    }
 
     if (action === 'clear') clearAll();
     else if (action === 'delete') deleteLast();
@@ -95,9 +141,12 @@ document.querySelectorAll('.btn').forEach(btn => {
     else if (action === 'equals') compute();
     else if (value !== undefined) inputNumber(value);
 
+    eurBase = parseFloat(current) || 0;
     updateDisplay();
   });
 });
+
+fetchLiveRates();
 
 document.addEventListener('keydown', (e) => {
   if (e.key >= '0' && e.key <= '9') inputNumber(e.key);
